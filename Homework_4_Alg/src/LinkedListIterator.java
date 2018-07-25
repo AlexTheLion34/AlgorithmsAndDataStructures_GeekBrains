@@ -46,7 +46,7 @@ public class LinkedListIterator implements Iterator<Integer> {
 
     public void reset() { // перемещение в начало списка
         if (list.isEmpty()) {
-            throw new NullPointerException("Список пустой");
+            throw new IllegalStateException("Список пустой");
         } else {
             firstIteration = true;
             currentElement = null;
@@ -55,7 +55,8 @@ public class LinkedListIterator implements Iterator<Integer> {
     }
 
     public boolean atEnd() { // проверка на конец списка
-        return currentElement.getNextElement() == null;
+
+        return !hasNext();
     }
 
     public int deleteCurrent() { // удаление текущего элемента
