@@ -2,10 +2,19 @@ public class Vertex {
 
     private final String label;
     private boolean wasVisited = false;
-    public Vertex previousvertex = null;
+    private Vertex previousvertex;
+
+    public void setPreviousvertex(Vertex previousvertex) {
+        this.previousvertex = previousvertex;
+    }
+
+    public Vertex getPreviousvertex() {
+
+        return previousvertex;
+    }
 
     public Vertex(String label) {
-
+        this.previousvertex = null;
         this.label = label;
     }
 

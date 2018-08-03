@@ -172,7 +172,7 @@ public class GraphImpl implements Graph {
             Vertex currentVertex = null;
             while ((currentVertex = getAdjUnvisitedVertex(vertex)) != null) {
                 visit(currentVertex, queue);
-                currentVertex.previousvertex = vertex;
+                currentVertex.setPreviousvertex(vertex);
                 if (currentVertex == find(findVertexLabel)) {
                     vertexToFind = currentVertex;
                     break label;
@@ -181,9 +181,9 @@ public class GraphImpl implements Graph {
         }
 
         Vertex counter = vertexToFind;
-        while (counter.previousvertex != null) {
+        while (counter.getPreviousvertex() != null) {
             way.push(counter);
-            counter = counter.previousvertex;
+            counter = counter.getPreviousvertex();
         }
         way.push(find(startVertexLabel));
         while (!way.empty()) {
