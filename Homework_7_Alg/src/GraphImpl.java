@@ -167,7 +167,7 @@ public class GraphImpl implements Graph {
         Queue<Vertex> queue = new ArrayDeque();
         visit(vertex, queue);
 
-        label :while (!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             vertex = queue.remove();
             Vertex currentVertex = null;
             while ((currentVertex = getAdjUnvisitedVertex(vertex)) != null) {
@@ -175,7 +175,7 @@ public class GraphImpl implements Graph {
                 currentVertex.setPreviousvertex(vertex);
                 if (currentVertex == find(findVertexLabel)) {
                     vertexToFind = currentVertex;
-                    break label;
+                    break;
                 }
             }
         }
